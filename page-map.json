@@ -1,0 +1,14 @@
+{
+  "index": "wordpress-theme/static/index.html",
+  "about": "wordpress-theme/static/about.html",
+  "case-studies": "wordpress-theme/static/case-studies.html",
+  "login": "wordpress-theme/static/login.html",
+  "news": "wordpress-theme/static/news.html",
+  "resources": "wordpress-theme/static/resources.html",
+  "request-demo": "wordpress-theme/static/request-demo.html",
+  "webinars": "wordpress-theme/static/webinars.html",
+  "how-it-works": "wordpress-theme/static/how-it-works.html",
+  "use-cases": "wordpress-theme/static/use-cases.html",
+  "contact-sales": "wordpress-theme/static/contact-sales.html",
+  "faq": "wordpress-theme/static/faq.html"
+}

@@ -1,0 +1,462 @@
+/*
+Theme Name: Proseris Converted Theme
+Author: Conversion (Cursor)
+Version: 1.0.0
+Description: Converted from Vite/Tailwind static site to WordPress classic theme.
+*/
+
+/* ===========================
+   CSS Variables (Design System)
+   =========================== */
+:root {
+  /* Proseris Brand Colors */
+  --primary: hsl(208, 63%, 39%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --primary-light: hsl(205, 54%, 48%);
+  --primary-lighter: hsl(203, 49%, 59%);
+  --primary-lightest: hsl(202, 56%, 76%);
+  
+  /* Secondary colors */
+  --secondary: hsl(203, 56%, 76%);
+  --secondary-foreground: hsl(208, 63%, 39%);
+  
+  /* Accent */
+  --accent: hsl(203, 49%, 59%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  
+  /* Base colors */
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 12%);
+  
+  /* Muted tones */
+  --muted: hsl(210, 20%, 96%);
+  --muted-foreground: hsl(0, 0%, 45%);
+  
+  /* Borders */
+  --border: hsl(210, 20%, 90%);
+  
+  /* Card */
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 12%);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px hsla(208, 63%, 39%, 0.08);
+  --shadow-md: 0 4px 16px hsla(208, 63%, 39%, 0.12);
+  --shadow-lg: 0 8px 32px hsla(208, 63%, 39%, 0.16);
+  
+  /* Border radius */
+  --radius: 0.75rem;
+  
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Font families */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+/* ===========================
+   Base Styles
+   =========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--foreground);
+  background-color: var(--background);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.75rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-light);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===========================
+   Container
+   =========================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-foreground);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* ===========================
+   Utility Classes
+   =========================== */
+.text-center {
+  text-align: center;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-lighter));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(180deg, hsla(203, 56%, 76%, 0.1), hsl(0, 0%, 100%));
+}
+
+.bg-muted {
+  background-color: var(--muted);
+}
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+/* ===========================
+   Animations
+   =========================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* ===========================
+   Navigation Styles
+   =========================== */
+.site-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: hsla(0, 0%, 100%, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-branding img {
+  height: auto;
+}
+
+.site-branding .proseris-logo {
+  height: 48px;
+}
+
+.site-branding .divider {
+  height: 32px;
+  width: 1px;
+  background-color: var(--border);
+}
+
+.site-branding .remi-logo {
+  height: 32px;
+}
+
+.primary-navigation {
+  display: none;
+}
+
+.primary-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.primary-navigation li {
+  position: relative;
+  margin: 0;
+}
+
+.primary-navigation > ul > li > a {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  padding: 0.5rem 0;
+  transition: var(--transition);
+}
+
+.primary-navigation > ul > li > a:hover {
+  color: var(--primary);
+}
+
+.primary-navigation .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 60;
+  min-width: 14rem;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.primary-navigation li:hover > .sub-menu,
+.primary-navigation li:focus-within > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.primary-navigation .sub-menu li {
+  margin: 0;
+}
+
+.primary-navigation .sub-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  transition: var(--transition);
+}
+
+.primary-navigation .sub-menu a:hover {
+  background-color: var(--muted);
+  color: var(--primary);
+}
+
+.primary-navigation .sub-menu li:first-child a {
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.primary-navigation .sub-menu li:last-child a {
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.chevron-down {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 0.25rem;
+}
+
+.nav-cta {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-cta .btn-primary {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+.nav-cta a:not(.btn-primary) {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--foreground);
+  transition: var(--transition);
+}
+
+.nav-cta a:not(.btn-primary):hover {
+  color: var(--primary);
+}
+
+.mobile-menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--foreground);
+}
+
+.mobile-menu {
+  display: none;
+  border-top: 1px solid var(--border);
+  background-color: var(--background);
+}
+
+.mobile-menu-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu li {
+  margin: 0 0 1rem 0;
+}
+
+.mobile-menu a {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--foreground);
+  padding: 0.5rem 0;
+}
+
+.mobile-menu .sub-menu {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.mobile-menu .sub-menu a {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.mobile-menu-cta {
+  margin-top: 1.5rem;
+}
+
+.mobile-menu-cta .btn-primary {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.mobile-menu-cta a:not(.btn-primary) {
+  display: block;
+  text-align: center;
+  padding: 0.75rem;
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  .primary-navigation {
+    display: block;
+  }
+  
+  .nav-cta {
+    display: flex;
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+  }
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  .site-branding .proseris-logo {
+    height: 40px;
+  }
+  
+  .site-branding .remi-logo {
+    height: 28px;
+  }
+}
